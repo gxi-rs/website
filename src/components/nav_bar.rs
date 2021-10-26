@@ -1,18 +1,19 @@
 use gxi::*;
 
-gxi! {
-    pub NavBar {}
-    render {
-        Nav [
-            A ( href = "/" ) [
-                Span ( style = "white-space: nowrap" ) [
-                    H1 ( inner_html = "Gxi-rs" )
+pub fn nav_bar() -> StrongNodeType {
+    return gxi! {
+        nav [
+            a ( href = "/" ) [
+                span ( style = "white-space: nowrap" ) [
+                    h1 [
+                        Text ( value = "Gxi-rs" )
+                    ]
                 ]
             ],
-            Div ( class = "spacer" ),
-            A ( href = "https://github.com/gxi-rs/gxi" ) [
-                Img ( height = 30, width = 30, src = "/assets/images/github-logo.svg", alt = "github" )
+            div ( class = "spacer" ),
+            a ( href = "https://github.com/gxi-rs/gxi" ) [
+                img ( height = "30", width = "30", src = "/assets/github-logo.svg", alt = "github" )
             ]
         ]
-    }
+    };
 }

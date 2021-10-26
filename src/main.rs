@@ -1,5 +1,3 @@
-pub use gxi::*;
-
 pub use components::*;
 
 #[global_allocator]
@@ -9,5 +7,5 @@ mod home;
 mod components;
 
 fn main() {
-    run::<home::Home>()
+    gxi::run(crate::home::home());
 }

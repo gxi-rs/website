@@ -1,20 +1,24 @@
-use crate::*;
+use crate::nav_bar;
+use gxi::{gxi, Body, Head, StrongNodeType, Text};
 
-gxi! {
-    pub Home {}
-    render {
+pub fn home() -> StrongNodeType {
+    return gxi! {
         Body [
             Head [
-                Title ( inner_html = "gxi-rs" ),
-                Meta ( name = "viewport", content = "width=device-width, initial-scale=1.0" ),
-                Meta ( name = "description", content = "Cross-Platform Native Widget based Component System in Rust" ),
-                Link ( rel = "stylesheet", href = "/assets/styles/home.css" )
+                title [
+                   Text ( value = "gxi-rs" )
+                ],
+                meta ( name = "viewport", content = "width=device-width, initial-scale=1.0" ),
+                meta ( name = "description", content = "Cross-Platform Native Widget based Component System in Rust" ),
+                link ( rel = "stylesheet", href = "/assets/home.css" )
             ],
-            NavBar,
-            Div ( id = "come-later" ) [
-                Img ( height = 200, width = 200, src = "https://rustacean.net/assets/cuddlyferris.svg", alt = "Cuddly Ferris" ),
-                H2 ( inner_html = "Site under development. Please come back later." )
+            nav_bar(),
+            div ( id = "come-later" ) [
+                img ( height = "200", width = "200", src = "https://rustacean.net/assets/cuddlyferris.svg", alt = "Cuddly Ferris" ),
+                h2 [
+                    Text ( value = "Site under development. Please come back later." )
+                ]
             ]
         ]
-    }
+    };
 }
